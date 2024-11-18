@@ -41,5 +41,25 @@ fun CoroutineExampleScreen() {
         }
     }
 
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Text(text = "Contador: ${counter.value}")
+        Button(
+            onClick = {
+                isLoading.value = true
+                counter.value = 0
+            },
+            modifier = Modifier.padding(top = 16.dp)
+        ) {
+            Text(text = "Iniciar tarea")
+        }
 
+        if (isLoading.value) {
+            Text(text = "Cargando...", modifier = Modifier.padding(top = 16.dp))
+        }
+    }
 }
