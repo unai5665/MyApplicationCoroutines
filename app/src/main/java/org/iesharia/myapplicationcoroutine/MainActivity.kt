@@ -33,4 +33,13 @@ fun CoroutineExampleScreen() {
     val isLoading = remember { mutableStateOf(false) }
 
 
+    LaunchedEffect(isLoading.value) {
+        if (isLoading.value) {
+            delay(3000)
+            counter.value += 1
+            isLoading.value = false
+        }
+    }
+
+
 }
